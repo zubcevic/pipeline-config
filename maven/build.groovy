@@ -1,3 +1,3 @@
 void call(){
-    println "gradle: build()"
+    println "maven: build()"
 }
