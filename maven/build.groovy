@@ -1,3 +1,5 @@
 void call(){
-    println "maven: build()"
+    stage('build') {
+	println "maven: build()"
+    }
 }
