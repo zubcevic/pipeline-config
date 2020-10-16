@@ -3,7 +3,7 @@ import hudson.model.User;
 import hudson.model.Cause;
 import hudson.model.Cause.UserIdCause;
 
-@AfterStep({ context.step.equals("build") })
+@BeforeStep({ context.step.equals("build") })
 void callBefore(context){
     def cause = currentBuild.rawBuild.getCause(hudson.model.Cause$UserIdCause)
     def id = cause.getUserId()
@@ -14,7 +14,7 @@ void callBefore(context){
 }
 
 @AfterStep({ context.step.equals("build") })
-void call(context){
+void callAfter(context){
     /*
         execute something right before the library step called
         build is executed.
@@ -26,10 +26,10 @@ try {
     def id = cause.getUserId()
     User u = User.get(id)
     def umail = u.getProperty(Mailer.UserProperty.class)
-    print umail.getAddress()
+
 } catch (e) {
 	echo e.getMessage()
 }
 
-    mail body:"Build result ${currentBuild.currentResult}",subject:"Build result ${currentBuild.currentResult}",to:'rene@zubcevic.com'
+    mail body:"Build result ${currentBuild.currentResult}",subject:"Build result ${currentBuild.currentResult}",to:"${umail.getAddress()}"
 }
