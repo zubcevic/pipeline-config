@@ -27,9 +27,8 @@ try {
     User u = User.get(id)
     def umail = u.getProperty(Mailer.UserProperty.class)
 
+    mail body:"Build result ${currentBuild.currentResult}",subject:"Build result ${currentBuild.currentResult}",to:"${umail.getAddress()}"
 } catch (e) {
 	echo e.getMessage()
 }
-
-    mail body:"Build result ${currentBuild.currentResult}",subject:"Build result ${currentBuild.currentResult}",to:"${umail.getAddress()}"
 }
