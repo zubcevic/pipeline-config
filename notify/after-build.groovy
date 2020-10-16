@@ -11,11 +11,13 @@ void call(context){
     */
     println("build step finished: ${currentBuild.currentResult}")
 
-    def cause = build.getCause(hudson.model.Cause$UserIdCause)
+try {
+    def cause = currentBuild.getCause(hudson.model.Cause$UserIdCause)
     def id = cause.getUserId()
     User u = User.get(id)
     def umail = u.getProperty(Mailer.UserProperty.class)
     print umail.getAddress()
+} catch (e) {}
 
-    mail bcc:'',body:'Test',cc:'',from:'',replyTo:'',subject:"Build result ${currentBuild.currentResult}",to:umal.getAddress()
+    mail bcc:'',body:'Test',cc:'',from:'',replyTo:'',subject:"Build result ${currentBuild.currentResult}",to:'rene@zubcevic.com'
 }
