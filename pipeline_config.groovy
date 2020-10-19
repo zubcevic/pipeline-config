@@ -1,5 +1,6 @@
 libraries{
   merge = true 
+  git
   sonarqube
   notify
 }
