@@ -11,6 +11,6 @@ application_environments {
 }
 
 keywords {
-    main = ~/^[Mm]ain(line|)$/
+    master = ~/^[Mm]aster(|)$/
     develop = ~/^[Dd]evelop(ment|er|)$/
 }
