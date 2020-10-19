@@ -1,6 +1,6 @@
 void call(Map args = [:], body){
 
-  println "running because of a commit to ${args.to} $env.BRANCH_NAME"
+  println "running because of $env.GIT_BUILD_CAUSE to ${args.to} $env.BRANCH_NAME "
 
   // do nothing if not commit
   if (!env.GIT_BUILD_CAUSE.equals("commit")) 

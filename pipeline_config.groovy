@@ -11,6 +11,6 @@ application_environments {
 }
 
 keywords {
-    master = ~/^[Mm]aster(|)$/
+    master = ~/^[Mm]aster$/
     develop = ~/^[Dd]evelop(ment|er|)$/
 }
