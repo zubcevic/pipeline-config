@@ -7,7 +7,7 @@ void call(){
         } else {
             println("a unix based os")
             withEnv(["JAVA_HOME=${tool 'JDK11'}","PATH=${tool 'JDK11'}/bin:${tool 'MAVEN363'}/bin:$PATH"]) {
-                sh 'mvn test'
+                sh 'mvn install'
             }
         }
         }
