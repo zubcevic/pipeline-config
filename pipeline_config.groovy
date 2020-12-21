@@ -3,7 +3,7 @@ skip_default_checkout = false
 
 @merge libraries {
   git
-  @overrude sonarqube
+  @override sonarqube
   notify
 }
 
