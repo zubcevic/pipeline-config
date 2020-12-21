@@ -1,6 +1,9 @@
-@merge libraries{
+allow_scm_jenkinsfile = false
+skip_default_checkout = false
+
+@merge libraries {
   git
-  sonarqube
+  @overrude sonarqube
   notify
 }
 
