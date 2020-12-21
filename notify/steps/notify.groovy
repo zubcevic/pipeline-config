@@ -3,8 +3,8 @@ import hudson.model.User;
 import hudson.model.Cause;
 import hudson.model.Cause.UserIdCause;
 
-@BeforeStep({ context.step.equals("build") })
-void callBefore(context){
+@BeforeStep({ hookContext.step.equals("build") })
+void callBefore(){
     def cause = currentBuild.rawBuild.getCause(hudson.model.Cause$UserIdCause)
     def id = cause.getUserId()
     User u = User.get(id)
@@ -13,8 +13,8 @@ void callBefore(context){
     println("build step started by: ${umail.getAddress()}")
 }
 
-@AfterStep({ context.step.equals("build") })
-void callAfter(context){
+@AfterStep({ hookContext.step.equals("build") })
+void callAfter(){
     /*
         execute something right before the library step called
         build is executed.
