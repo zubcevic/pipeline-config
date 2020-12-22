@@ -18,6 +18,9 @@ void call(){
     }
     stage('build - reports') {
 	    println "maven: build()"
-        
+        node {
+            junit '**/build/test-reports/*.xml'
+            jacoco skipCopyOfSrcFiles: true
+        }
     }
 }
