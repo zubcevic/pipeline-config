@@ -1,10 +1,8 @@
 void call(){
-    stage('build') {
+    stage('build - maven') {
 	    println "maven: build()"
         buildDiscarder logRotator(artifactDaysToKeepStr: '30', artifactNumToKeepStr: '5', daysToKeepStr: '30', numToKeepStr: '5')
-        
-        steps {
-            stage('mvn clean install') {
+    
         node {
         if (!isUnix()) {
             println("not a unix os")
@@ -17,8 +15,9 @@ void call(){
             }
         }
         }
-            }
-        }
-
+    }
+    stage('build - reports') {
+	    println "maven: build()"
+        
     }
 }
