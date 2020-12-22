@@ -1,5 +1,4 @@
 build()
-unit_test()
 static_code_analysis()
 
 on_commit to:develop, {
